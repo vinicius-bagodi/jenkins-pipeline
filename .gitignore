@@ -1,4 +1,3 @@
 **data/**
 **agent/**
-**scripts/**
-**java.Dockerfile
+**.env
