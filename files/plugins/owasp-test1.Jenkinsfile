@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git url: 'https://github.com/owasp/test1.git', branch: 'main'
+                git url: 'https://github.com/vinicius-bagodi/Nodejs_MongoDB.git', branch: 'main'
             }
         }
         stage('OWASP Test') {
