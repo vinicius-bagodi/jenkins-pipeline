@@ -23,8 +23,10 @@ pipeline {
                     stopBuild: true
             }
         }
-        stage("End Test"){
-            echo "End test"
+        stage('End Test') {
+            steps {
+                echo 'End test'
+            }
         }
     }
 }
