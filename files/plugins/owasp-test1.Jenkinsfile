@@ -9,6 +9,8 @@ pipeline {
         }
         stage('OWASP Test') {
             steps {
+                withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_API_KEY')]) {
+                    sh 'echo "nvd.api.key=$NVD_API_KEY" > nvd.properties'
                 dependencyCheck additionalArguments: ''' 
                     -o './'
                     -s './'
@@ -16,6 +18,7 @@ pipeline {
                     --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
             
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+                }
             }
         }
     }
