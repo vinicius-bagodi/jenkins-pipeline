@@ -3,9 +3,6 @@ pipeline {
     environment {
         NVD_API_KEY = credentials('nvd-api-key')
     }
-    tools {
-        nodejs "node22"
-    }
     stages {
         stage('Clone Repository') {
             steps {
