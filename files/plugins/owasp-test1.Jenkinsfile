@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'nodejs'
+    }
     environment {
         NVD_API_KEY = credentials('nvd-api-key')
     }
