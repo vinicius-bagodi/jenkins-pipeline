@@ -3,10 +3,18 @@ pipeline {
     environment {
         NVD_API_KEY = credentials('nvd-api-key')
     }
+    tools {
+        nodejs "node16"
+    }
     stages {
         stage('Clone Repository') {
             steps {
                 git url: 'https://github.com/vinicius-bagodi/Nodejs_MongoDB.git', branch: 'main'
+            }
+        }
+        stage('Build'){
+            steps {
+                sh "npm install"
             }
         }
         stage('OWASP Test') {
